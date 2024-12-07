@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>SoundScape</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Meta Description and Keywords for SEO -->
+    <meta name="description" content="An immersive sound and visual experience.">
+    <meta name="keywords" content="SoundScape, music, ambient, audio, video background">
+    <!-- Link to your CSS file -->
+    <link rel="stylesheet" href="style.css">
+    <!-- Include Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Full-Screen Video Background -->
+    <div id="video-container"></div>
+<div id="topBar"></div>
+    <div class="container">
+        <!-- Page Title -->
+        <h1>Focus</h1>
+
+        <!-- Play/Pause Button -->
+        <button id="playStopButton">Play</button>
+
+        <!-- Shuffle Button -->
+        <button id="shuffleButton">Shuffle</button>
+
+        <!-- Hamburger Menu -->
+        <div class="hamburger-menu">
+            <span id="hamburgerIcon">&#9776;</span> <!-- Hamburger Icon -->
+        </div>
+
+        <!-- SFX Sidebar Menu -->
+        <div id="sfx-menu" class="sfx-menu">
+            <div class="sfx-controls">
+                <!-- Background Videos -->
+                <h2>Background Videos</h2>
+                <div id="backgroundVideosContainer"></div> <!-- Dynamic Background Videos Container -->
+
+                <!-- Audio Sources -->
+                <h2>Audio Sources</h2>
+                <div id="audioSourcesContainer"></div> <!-- Dynamic Audio Sources Container -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Track Information Display -->
+    <div id="track-info">
+        <p id="music-info">Music: Not playing</p>
+        <p id="words-info">Words: Not playing</p>
+        <p id="video-info">Video: <a href="https://www.youtube.com/watch?v=hXD8itTKdY0" target="_blank" rel="noopener noreferrer">"Cinematic Drone Compilation - One Hour of Amazing FPV Drone Flying - 4K"</a> by Kerni FPV</p>
+    </div>
+
+    <!-- Repositioned Full-Screen Toggle Button with Font Awesome Icon -->
+    <div id="fullscreen-toggle" title="Toggle Full-Screen" aria-label="Enter Full-Screen">
+        <i id="fullscreenIcon" class="fas fa-expand"></i> <!-- Full-Screen Icon -->
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>Site by Camm Rowland. All audio and video content is the property of their respective owners. Click the info button for media details.</p>
+    </footer>
+
+    <!-- Credits Modal -->
+    <div id="creditsModal" class="credits-modal">
+        <div class="credits-content">
+            <span class="close-credits">&times;</span>
+            <h2>Audio and Video Credits / Sources</h2>
+            <ul id="creditsList">
+                <!-- Credits will remain hardcoded or can also be dynamically generated if desired -->
+                <!-- Example Credits -->
+                <li>
+                    <strong>Background Video 1: "Cinematic Drone Compilation - One Hour of Amazing FPV Drone Flying - 4K" by Kerni FPV</strong> - <a href="https://www.youtube.com/watch?v=hXD8itTKdY0" target="_blank">https://www.youtube.com/watch?v=hXD8itTKdY0</a>
+                </li>
+                <!-- Add other credits as needed -->
+            </ul>
+        </div>
+    </div>
+
+    <!-- YouTube IFrame API -->
+    <script src="https://www.youtube.com/iframe_api"></script>
+    <!-- Your JavaScript File -->
+    <script src="script.js"></script>
+
+<!-- Info Button -->
+<div id="info-toggle" title="Show Track Info" aria-label="Show Track Info">
+    <i id="infoIcon" class="fas fa-info-circle"></i> <!-- Info Icon -->
+</div>
+
+</body>
+</html>

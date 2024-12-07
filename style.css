@@ -1,0 +1,426 @@
+/* General Body Styles */
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    color: #333;
+}
+
+
+#topBar {
+    position: fixed; /* Fix the bar to the top of the viewport */
+    top: 0; /* Align it to the top */
+    left: 0; /* Align it to the left edge */
+    width: 100%; /* Full width of the window */
+    height: 80px; /* Height of the bar */
+    background-color: black; /* Black color */
+    z-index: 50; /* Ensure it sits above the video but below other key elements */
+    opacity: 1; /* Start fully visible */
+    transition: opacity 2s ease-in-out; /* Smooth transition for fading in and fading out */
+}
+
+
+
+
+/* Full-Browser Background Video */
+#video-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: -1; /* Ensure the video is behind other content */
+}
+
+#video-container iframe {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    min-width: 100%;
+    min-height: 100%;
+}
+
+/* Hide YouTube players in the sidebar */
+.hidden {
+    display: none;
+}
+
+/* Container for Centering Content */
+.container {
+
+    margin: 0 auto;
+    padding: 20px;
+    text-align: left;
+    position: relative; /* Ensure content is above video */
+    z-index: 101; /* Below top elements */
+}
+
+/* Page Title Styling - Positioned at the Top Left */
+h1 {
+    font-weight: 200;
+    margin: 20px;
+    color: #ffffff; /* White color for better visibility on video background */
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5); /* Shadow for readability */
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 200; /* Above the SFX menu */
+}
+
+/* Play/Pause Button Styling - Positioned to the right of the title */
+#playStopButton {
+    background-color: rgba(80, 80, 80, 0.5);
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease-in-out;
+    position: absolute;
+    top: 20px;
+    right: 200px; /* Adjusted to accommodate the Shuffle button */
+    z-index: 200; /* Above the SFX menu */
+}
+
+#playStopButton:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+/* Shuffle Button Styling */
+#shuffleButton {
+    background-color: rgba(80, 80, 80, 0.5); /* Orange color */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    font-size: 16px;
+    padding: 10px 20px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease-in-out;
+    position: absolute;
+    top: 20px;
+    right: 100px; /* Positioned to the left of the Play/Pause button */
+    z-index: 200; /* Above the SFX menu */
+}
+
+#shuffleButton:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Darker orange on hover */
+}
+
+/* SFX Sidebar Menu Styles */
+.sfx-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%; /* Full browser width */
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9); /* Dark, semi-transparent background */
+    color: white;
+    z-index: 150; /* Above bottom content (z-index: 150), below top elements (z-index: 200+) */
+    overflow-y: auto;
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    display: none; /* Hidden by default */
+    padding-top: 80px; /* Padding to avoid overlap with top elements */
+}
+
+.sfx-menu.show {
+    display: block; /* Show when toggled */
+}
+
+.sfx-controls {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center controls horizontally */
+    justify-content: flex-start;
+    width: 100%; /* Flex container fills the width */
+    max-width: 500px; /* Maximum width for better layout */
+    margin: 0 auto; /* Center within the SFX menu */
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.7); /* Semi-transparent background for controls */
+    border-radius: 8px; /* Rounded corners */
+}
+
+
+/* Styles for the SFX menu */
+#sfx-menu {
+    max-height: 80vh; /* Adjust the value as needed */
+    overflow-y: auto; /* Enable vertical scrolling */
+    /* Optional: Add padding or margin if needed */
+    /* Optional: Set a width or max-width if necessary */
+}
+
+/* Optional: Customize the scrollbar (WebKit browsers only) */
+#sfx-menu::-webkit-scrollbar {
+    width: 8px;
+}
+
+#sfx-menu::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+#sfx-menu::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+#sfx-menu::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+
+/* Styles for audio-header to align title and button */
+.audio-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.audio-header h2 {
+    font-size: 14px; /* Smaller text */
+    font-weight: normal; /* Remove boldness */
+    margin: 0;
+    color: #ffffff;
+    text-align: left;
+}
+
+.audio-header .play-button {
+    font-size: 12px; /* Smaller button text */
+    font-weight: normal; /* Remove boldness from button text */
+    background-color: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 4px;
+    color: white;
+    padding: 6px 12px;
+    cursor: pointer;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.audio-header .play-button:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.audio-header .play-button.active {
+    background-color: rgba(0, 122, 255, 0.8);
+    border-color: rgba(0, 122, 255, 1);
+}
+
+.audio-source {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Loading Spinner Styles */
+.loading-spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+    margin: 10px auto;
+    display: none; /* Hidden by default */
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 30px;
+    cursor: pointer;
+    z-index: 200; /* Above the SFX menu */
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+
+/* Footer Styles */
+footer {
+    position: absolute;
+    bottom: 10px; /* Positioned at the bottom */
+    left: 20px;
+    color: #ffffff;
+    font-size: 8px;
+    z-index: 150; /* Below the SFX menu */
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #ffffff;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+footer a:hover {
+    text-decoration: none;
+}
+
+/* Track Information Styles */
+#track-info {
+    position: absolute;
+    bottom: 50px; /* Positioned above the footer */
+    left: 20px;
+    color: #ffffff;
+    font-size: 14px;
+    z-index: 150; /* Below the SFX menu */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    opacity: 0; /* Initially hidden */
+    transition: opacity 0.5s ease-in-out; /* Smooth transition for showing/hiding */
+    pointer-events: none; /* Prevent interaction while hidden */
+}
+
+#track-info p {
+    margin: 2px 0;
+}
+
+#track-info a {
+    color: #ffffff; /* Set hyperlink color to white */
+    text-decoration: underline;
+}
+
+#track-info a:hover {
+    text-decoration: none;
+}
+
+/* Full-Screen Toggle Styles */
+#fullscreen-toggle {
+    position: absolute;
+    bottom: 50px; /* Align with track info */
+    right: 20px; /* Positioned at the bottom right */
+    z-index: 200; /* Above the SFX menu */
+    cursor: pointer;
+}
+
+#fullscreenIcon {
+    font-size: 24px;
+    color: #ffffff;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+#fullscreenIcon:hover {
+    color: #cccccc;
+}
+
+/* Credits Modal Styles */
+.credits-modal {
+    display: none; /* Hidden by default */
+    position: fixed;
+    z-index: 200; /* Above other content */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9); /* Black with opacity */
+}
+
+.credits-content {
+    background-color: rgba(0, 0, 0, 0.8);
+    margin: 50px auto;
+    padding: 20px;
+    width: 80%;
+    max-width: 600px;
+    color: #fff;
+    border-radius: 8px;
+    font-size: 10px;
+}
+
+.credits-content h2 {
+    text-align: center;
+    margin-top: 0;
+    font-size: 14px;
+}
+
+.credits-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.credits-content li {
+    margin-bottom: 10px;
+}
+
+.credits-content a {
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.credits-content a:hover {
+    text-decoration: none;
+}
+
+.close-credits {
+    color: #aaa;
+    float: right;
+
+    font-weight: bold;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.close-credits:hover,
+.close-credits:focus {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* Responsive Adjustments */
+@media only screen and (max-width: 600px) {
+    /* Adjust button positions for smaller screens */
+    #playStopButton, #shuffleButton {
+        top: 70px;
+        right: auto;
+        left: 20px;
+        z-index: 200; /* Ensure they remain above the SFX menu */
+    }
+
+    #shuffleButton {
+        top: 120px;
+    }
+
+    /* Adjust hamburger menu position */
+    .hamburger-menu {
+        top: 20px;
+        right: 20px;
+        z-index: 200; /* Ensure it remains above the SFX menu */
+    }
+}
+
+
+#info-toggle {
+    position: absolute;
+    bottom: 50px; /* Align with fullscreen button */
+    right: 60px; /* 20px to the left of the fullscreen button */
+    z-index: 200; /* Above the SFX menu */
+    cursor: pointer;
+}
+
+#infoIcon {
+    font-size: 24px; /* Size of the info icon */
+    color: #ffffff; /* White color for visibility */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5); /* Shadow for better visibility */
+}
+
+#infoIcon:hover {
+    color: #cccccc; /* Change color on hover for user feedback */
+}
+
+
